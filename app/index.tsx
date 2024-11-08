@@ -1,26 +1,59 @@
-import { Text, View } from "react-native";
+import { Text, View, Pressable, TouchableOpacity,TextInput } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 import { TabBarIcon } from "@/components/navigation/TabBarIcon";
 import { ScrollView } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
+
 
 export default function Index() {
+  const navigation = useNavigation();
+  const [searchText, setSearchText] = useState("");
   return (
     <View className="w-screen flex-1 bg-[#11418B]">
       {/* Header Section */}
       <View className="px-6 pt-12">
         <View className="flex flex-row justify-between">
-          <TabBarIcon name={'menu-sharp'} className="text-red-50 text-3xl" />
-          <View className="w-28 h-10 bg-white rounded-3xl flex justify-center px-3">
+          <TabBarIcon name={"menu-sharp"} className="text-red-50 text-3xl" />
+
+          {/* Button untuk navigasi */}
+          <Pressable
+            className="w-28 h-10 bg-white rounded-3xl flex justify-center px-3"
+            onPress={() => navigation.navigate("profile")}
+          >
             <Text className="font-bold mx-auto">Alfarizi</Text>
-          </View>
+          </Pressable>
         </View>
 
+
+        <View className='p-4 mt-5'>
+  <Text className='text-gray-300 text-sm mb-2'>11 OKTOBER 2024</Text>
+  <View className='flex-row items-center'>
+    <View className="relative">
+      <Text className='text-white text-4xl font-bold'>Developed by</Text>
+      <Text className='text-white text-5xl w-[400px] font-bold absolute top-9  mt-3'>SKNC DEV</Text>
+    </View>
+
+
+
+    
+  </View>
+</View>
+
+    
         {/* Search Bar */}
-        <View className="mt-40 w-full flex flex-row justify-between">
-          <View className="w-72 h-14 rounded-full bg-white justify-center">
-            <Text className="font-bold text-lg ml-5">Search</Text>
+        <View className="mt-16 w-full flex flex-row justify-between px-2">
+          <View className="w-72 h-14 rounded-full bg-white justify-center px-4 mr-3">
+            <TextInput
+              className="font-bold text-lg ml-1 flex-1"
+              placeholder="Search"
+              placeholderTextColor="#999"
+              value={searchText}
+              onChangeText={(text) => setSearchText(text)}
+            />
           </View>
           <View className="w-14 h-14 rounded-full bg-[#242445] flex items-center justify-center">
-            <TabBarIcon name={'menu'} className="text-white text-xl" />
+            <TabBarIcon name="menu" className="text-white text-xl" />
           </View>
         </View>
       </View>
@@ -36,26 +69,26 @@ export default function Index() {
 
             {/* Horizontal ScrollView */}
             <ScrollView
-            className="my-4"
+              className="my-4"
               horizontal={true}
               showsHorizontalScrollIndicator={false}
               contentContainerStyle={{ paddingHorizontal: 16 }}
             >
-              <View className="w-20 h-20 rounded-xl bg-white mr-4">
+              <TouchableOpacity onPress={() => navigation.navigate("instal")} className="w-20 h-20 rounded-xl bg-white mr-4">
                 <Text>Genshin</Text>
-              </View>
-              <View className="w-20 h-20 rounded-xl bg-white mr-4">
+              </TouchableOpacity>
+              <TouchableOpacity  onPress={() => navigation.navigate("instal")} className="w-20 h-20 rounded-xl bg-white mr-4">
                 <Text>Genshin</Text>
-              </View>
-              <View className="w-20 h-20 rounded-xl bg-white mr-4">
+              </TouchableOpacity>
+              <TouchableOpacity className="w-20 h-20 rounded-xl bg-white mr-4">
                 <Text>Genshin</Text>
-              </View>
-              <View className="w-20 h-20 rounded-xl bg-white mr-4">
+              </TouchableOpacity>
+              <TouchableOpacity className="w-20 h-20 rounded-xl bg-white mr-4">
                 <Text>Genshin</Text>
-              </View>
-              <View className="w-20 h-20 rounded-xl bg-white mr-4">
+              </TouchableOpacity>
+              <TouchableOpacity className="w-20 h-20 rounded-xl bg-white mr-4">
                 <Text>Genshin</Text>
-              </View>
+              </TouchableOpacity>
             </ScrollView>
           </View>
 
@@ -68,7 +101,7 @@ export default function Index() {
 
             {/* Horizontal ScrollView */}
             <ScrollView
-            className="my-6 mx-auto"
+              className="my-6 mx-auto"
               horizontal={true}
               showsHorizontalScrollIndicator={false}
               contentContainerStyle={{ paddingHorizontal: 16 }}
@@ -88,7 +121,7 @@ export default function Index() {
             </ScrollView>
           </View>
 
-          <View className="w-full h-48 rounded-t-[49px]">
+          <View className="w-full h-48 rounded-t-[49px] mb-10">
             <View className="flex flex-row px-7">
               <Text className="text-2xl font-semibold">Most Popular Game</Text>
               <TabBarIcon name={'arrow-forward'} className="mx-3 text-3xl" />
@@ -96,7 +129,7 @@ export default function Index() {
 
             {/* Horizontal ScrollView */}
             <ScrollView
-            className="my-4"
+              className="my-4"
               horizontal={true}
               showsHorizontalScrollIndicator={false}
               contentContainerStyle={{ paddingHorizontal: 16 }}
@@ -120,6 +153,24 @@ export default function Index() {
           </View>
 
         </ScrollView>
+        <View className="absolute bottom-0 w-full bg-blue-900 flex-row justify-around p-4 rounded-t-3xl">
+          <TouchableOpacity className="items-center">
+            <Ionicons name="home" size={24} color="red" />
+            <Text className="text-yellow-300 mt-1">Home</Text>
+          </TouchableOpacity>
+          <TouchableOpacity className="items-center">
+            <Ionicons name="game-controller" size={24} color="white" />
+            <Text className="text-white mt-1">Game</Text>
+          </TouchableOpacity>
+          <TouchableOpacity className="items-center">
+            <Ionicons name="trophy" size={24} color="white" />
+            <Text className="text-white mt-1">Trophy</Text>
+          </TouchableOpacity>
+          <TouchableOpacity className="items-center">
+            <Ionicons name="notifications" size={24} color="white" />
+            <Text className="text-white mt-1">Notification</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
