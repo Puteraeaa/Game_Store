@@ -1,7 +1,13 @@
 {
     "build": {
-      "android": {},
-      "ios": {}
+      "production": {
+        "android": {
+          "buildType": "apk"  
+        },
+        "ios": {
+          "distribution": "store" 
+        }
+      }
     }
   }
   

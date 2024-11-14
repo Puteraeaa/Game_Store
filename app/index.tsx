@@ -4,6 +4,8 @@ import { TabBarIcon } from "@/components/navigation/TabBarIcon";
 import { ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
+import NavBottom from "@/app/component/navBottom";
 
 
 export default function Index() {
@@ -42,20 +44,21 @@ export default function Index() {
 
     
         {/* Search Bar */}
-        <View className="mt-16 w-full flex flex-row justify-between px-2">
-          <View className="w-72 h-14 rounded-full bg-white justify-center px-4 mr-3">
-            <TextInput
-              className="font-bold text-lg ml-1 flex-1"
-              placeholder="Search"
-              placeholderTextColor="#999"
-              value={searchText}
-              onChangeText={(text) => setSearchText(text)}
-            />
-          </View>
-          <View className="w-14 h-14 rounded-full bg-[#242445] flex items-center justify-center">
-            <TabBarIcon name="menu" className="text-white text-xl" />
-          </View>
-        </View>
+        <View className="mt-16 w-full flex flex-row justify-between px-4">
+  <View className="flex-1 h-14 rounded-full bg-white flex-row items-center px-4 mr-2">
+    <TextInput
+      className="flex-1 font-bold text-lg ml-1"
+      placeholder="Search"
+      placeholderTextColor="#999"
+      value={searchText}
+      onChangeText={(text) => setSearchText(text)}
+    />
+  </View>
+  <View className="w-14 h-14 rounded-full bg-[#242445] flex items-center justify-center">
+    <TabBarIcon name="menu" className="text-white text-xl" />
+  </View>
+</View>
+
       </View>
 
       {/* Main ScrollView */}
@@ -153,25 +156,11 @@ export default function Index() {
           </View>
 
         </ScrollView>
-        <View className="absolute bottom-0 w-full bg-blue-900 flex-row justify-around p-4 rounded-t-3xl">
-          <TouchableOpacity className="items-center">
-            <Ionicons name="home" size={24} color="red" />
-            <Text className="text-yellow-300 mt-1">Home</Text>
-          </TouchableOpacity>
-          <TouchableOpacity className="items-center">
-            <Ionicons name="game-controller" size={24} color="white" />
-            <Text className="text-white mt-1">Game</Text>
-          </TouchableOpacity>
-          <TouchableOpacity className="items-center">
-            <Ionicons name="trophy" size={24} color="white" />
-            <Text className="text-white mt-1">Trophy</Text>
-          </TouchableOpacity>
-          <TouchableOpacity className="items-center">
-            <Ionicons name="notifications" size={24} color="white" />
-            <Text className="text-white mt-1">Notification</Text>
-          </TouchableOpacity>
-        </View>
+       
       </View>
+      <SafeAreaView>
+        <NavBottom/>
+      </SafeAreaView>
     </View>
   );
 }

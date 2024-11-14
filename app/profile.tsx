@@ -57,29 +57,30 @@ const ProfileScreen: React.FC = () => {
         {/* Name and Details */}
         <Text className="text-2xl font-semibold mt-4">Muhamad Alfarizi</Text>
         <Text className="text-gray-500">Alfarizi#001 | <Text className="text-blue-600">Game Developer </Text></Text>
-        <Text className="text-center text-gray-600 mt-2 w-3/4">
+        <Text className="text-center text-gray-600 mt-2 w-3/4 mt-10  font-bold">
           Wait, some achievements give more XP than others? Yep. True.
         </Text>
       </View>
 
        {/* Progress Bar */}
-       <View className="mt-6 px-6">
+       <View className=" px-6 mt-[-7px]">
+        
         <View className="flex flex-row items-center justify-between mb-1">
           <Text className="text-blue-600 font-bold">4</Text>
           <Text className="text-gray-400">5</Text>
         </View>
         <ProgressBar
-          progress={0.8}
+          progress={0.7}
           color="#11418B"
-          style={{ height: 8, borderRadius: 4 }}
+          style={{ height: 15, borderRadius: 10, width: "100%" }} 
         />
         <Text className="text-blue-700 text-center mt-2 font-semibold">
-          3,000 XP UNTIL LEVEL 5
+          3,000 XP <Text className="text-black">UNTIL LEVEL 5</Text> 
         </Text>
       </View>
 
       {/* Bottom Navigation */}
-      <View className="absolute bottom-0 w-full bg-blue-900 flex-row justify-around py-4 rounded-t-3xl">
+      {/* <View className="absolute bottom-0 w-full bg-blue-900 flex-row justify-around py-4 rounded-t-3xl">
         <TouchableOpacity className="items-center">
           <Ionicons name="home" size={24} color="red" />
           <Text className="text-yellow-300 mt-1">Home</Text>
@@ -96,7 +97,7 @@ const ProfileScreen: React.FC = () => {
           <Ionicons name="notifications" size={24} color="white" />
           <Text className="text-white mt-1">Notification</Text>
         </TouchableOpacity>
-      </View>
+      </View> */}
     </View>
   );
 };
