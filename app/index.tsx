@@ -1,4 +1,4 @@
-import { Text, View, Pressable, TouchableOpacity,TextInput } from "react-native";
+import { Text, View, Pressable, TouchableOpacity, TextInput, Image } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { TabBarIcon } from "@/components/navigation/TabBarIcon";
 import { ScrollView } from "react-native";
@@ -6,6 +6,8 @@ import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import NavBottom from "@/app/component/navBottom";
+import { LinearGradient } from 'expo-linear-gradient';
+
 
 
 export default function Index() {
@@ -29,35 +31,35 @@ export default function Index() {
 
 
         <View className='p-4 mt-5'>
-  <Text className='text-gray-300 text-sm mb-2'>11 OKTOBER 2024</Text>
-  <View className='flex-row items-center'>
-    <View className="relative">
-      <Text className='text-white text-4xl font-bold'>Developed by</Text>
-      <Text className='text-white text-5xl w-[400px] font-bold absolute top-9  mt-3'>SKNC DEV</Text>
-    </View>
+          <Text className='text-gray-300 text-sm mb-2'>11 OKTOBER 2024</Text>
+          <View className='flex-row items-center'>
+            <View className="relative">
+              <Text className='text-white text-4xl font-bold'>Developed by</Text>
+              <Text className='text-white text-5xl w-[400px] font-bold absolute top-9  mt-3'>SKNC DEV</Text>
+            </View>
 
 
 
-    
-  </View>
-</View>
 
-    
+          </View>
+        </View>
+
+
         {/* Search Bar */}
         <View className="mt-16 w-full flex flex-row justify-between px-4">
-  <View className="flex-1 h-14 rounded-full bg-white flex-row items-center px-4 mr-2">
-    <TextInput
-      className="flex-1 font-bold text-lg ml-1"
-      placeholder="Search"
-      placeholderTextColor="#999"
-      value={searchText}
-      onChangeText={(text) => setSearchText(text)}
-    />
-  </View>
-  <View className="w-14 h-14 rounded-full bg-[#242445] flex items-center justify-center">
-    <TabBarIcon name="menu" className="text-white text-xl" />
-  </View>
-</View>
+          <View className="flex-1 h-14 rounded-full bg-white flex-row items-center px-4 mr-2">
+            <TextInput
+              className="flex-1 font-bold text-lg ml-1"
+              placeholder="Search"
+              placeholderTextColor="#999"
+              value={searchText}
+              onChangeText={(text) => setSearchText(text)}
+            />
+          </View>
+          <View className="w-14 h-14 rounded-full bg-[#242445] flex items-center justify-center">
+            <TabBarIcon name="menu" className="text-white text-xl" />
+          </View>
+        </View>
 
       </View>
 
@@ -78,19 +80,49 @@ export default function Index() {
               contentContainerStyle={{ paddingHorizontal: 16 }}
             >
               <TouchableOpacity onPress={() => navigation.navigate("instal")} className="w-20 h-20 rounded-xl bg-white mr-4">
-                <Text>Genshin</Text>
+
+                <Image
+                  source={require("../assets/images/unnamed.webp")}
+                  className="w-full h-full object-cover rounded-xl "
+
+                />
+                <Text className="text-center font-semibold w-full ">Ganshin Impact</Text>
               </TouchableOpacity>
-              <TouchableOpacity  onPress={() => navigation.navigate("instal")} className="w-20 h-20 rounded-xl bg-white mr-4">
-                <Text>Genshin</Text>
+              <TouchableOpacity onPress={() => navigation.navigate("instal")} className="w-20 h-20 rounded-xl bg-white mr-4">
+
+                <Image
+                  source={require("../assets/images/unnamed.webp")}
+                  className="w-full h-full object-cover rounded-xl "
+
+                />
+                <Text className="text-center font-semibold w-full ">Ganshin Impact</Text>
               </TouchableOpacity>
-              <TouchableOpacity className="w-20 h-20 rounded-xl bg-white mr-4">
-                <Text>Genshin</Text>
+              <TouchableOpacity onPress={() => navigation.navigate("instal")} className="w-20 h-20 rounded-xl bg-white mr-4">
+
+                <Image
+                  source={require("../assets/images/unnamed.webp")}
+                  className="w-full h-full object-cover rounded-xl "
+
+                />
+                <Text className="text-center font-semibold w-full ">Ganshin Impact</Text>
               </TouchableOpacity>
-              <TouchableOpacity className="w-20 h-20 rounded-xl bg-white mr-4">
-                <Text>Genshin</Text>
+              <TouchableOpacity onPress={() => navigation.navigate("instal")} className="w-20 h-20 rounded-xl bg-white mr-4">
+
+                <Image
+                  source={require("../assets/images/unnamed.webp")}
+                  className="w-full h-full object-cover rounded-xl "
+
+                />
+                <Text className="text-center font-semibold w-full ">Ganshin Impact</Text>
               </TouchableOpacity>
-              <TouchableOpacity className="w-20 h-20 rounded-xl bg-white mr-4">
-                <Text>Genshin</Text>
+              <TouchableOpacity onPress={() => navigation.navigate("instal")} className="w-20 h-20 rounded-xl bg-white mr-4">
+
+                <Image
+                  source={require("../assets/images/unnamed.webp")}
+                  className="w-full h-full object-cover rounded-xl "
+
+                />
+                <Text className="text-center font-semibold w-full ">Ganshin Impact</Text>
               </TouchableOpacity>
             </ScrollView>
           </View>
@@ -109,18 +141,95 @@ export default function Index() {
               showsHorizontalScrollIndicator={false}
               contentContainerStyle={{ paddingHorizontal: 16 }}
             >
-              <View className="w-[380px] h-56 rounded-xl bg-slate-200 mr-4">
-                <Text>Genshin</Text>
-              </View>
-              <View className="w-[380px] h-56 rounded-xl bg-slate-200 mr-4">
-                <Text>Genshin</Text>
-              </View>
-              <View className="w-[380px] h-56 rounded-xl bg-slate-200 mr-4">
-                <Text>Genshin</Text>
-              </View>
-              <View className="w-[380px] h-56 rounded-xl bg-slate-200 mr-4">
-                <Text>Genshin</Text>
-              </View>
+              <TouchableOpacity onPress={() => navigation.navigate("instal")} className="w-[380px] h-60 rounded-xl mr-4 p-3">
+                <LinearGradient
+                  colors={["#11418B", "#051125"]}
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    borderRadius: 16
+                  }}
+                />
+                <Image source={require("../assets/images/splash.png")} className="w-full h-36 p-5 rounded-xl" />
+                <View className="p-3 flex-row items-center pb-2">
+                  <Image source={require("../assets/images/unnamed.webp")} className="rounded-xl" />
+                  <View className="ml-3 ">
+                    <Text className="text-white font-bold text-lg">uta</Text>
+                    <Text className="text-gray-300 text-xs ">Lorem ipsum dolor sit.</Text>
+                  </View>
+
+                </View>
+              </TouchableOpacity>
+
+              <TouchableOpacity onPress={() => navigation.navigate("instal")} className="w-[380px] h-60 rounded-xl mr-4 p-3">
+                <LinearGradient
+                  colors={["#11418B", "#051125"]}
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    borderRadius: 16
+                  }}
+                />
+                <Image source={require("../assets/images/splash.png")} className="w-full h-36 p-5 rounded-xl" />
+                <View className="p-3 flex-row items-center pb-2">
+                  <Image source={require("../assets/images/unnamed.webp")} className="rounded-xl" />
+                  <View className="ml-3 ">
+                    <Text className="text-white font-bold text-lg">uta</Text>
+                    <Text className="text-gray-300 text-xs ">Lorem ipsum dolor sit.</Text>
+                  </View>
+
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("instal")} className="w-[380px] h-60 rounded-xl mr-4 p-3">
+                <LinearGradient
+                  colors={["#11418B", "#051125"]}
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    borderRadius: 16
+                  }}
+                />
+                <Image source={require("../assets/images/splash.png")} className="w-full h-36 p-5 rounded-xl" />
+                <View className="p-3 flex-row items-center pb-2">
+                  <Image source={require("../assets/images/unnamed.webp")} className="rounded-xl" />
+                  <View className="ml-3 ">
+                    <Text className="text-white font-bold text-lg">uta</Text>
+                    <Text className="text-gray-300 text-xs ">Lorem ipsum dolor sit.</Text>
+                  </View>
+
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("instal")} className="w-[380px] h-60 rounded-xl mr-4 p-3">
+                <LinearGradient
+                  colors={["#11418B", "#051125"]}
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    borderRadius: 16
+                  }}
+                />
+                <Image source={require("../assets/images/splash.png")} className="w-full h-36 p-5 rounded-xl" />
+                <View className="p-3 flex-row items-center pb-2">
+                  <Image source={require("../assets/images/unnamed.webp")} className="rounded-xl" />
+                  <View className="ml-3 ">
+                    <Text className="text-white font-bold text-lg">uta</Text>
+                    <Text className="text-gray-300 text-xs ">Lorem ipsum dolor sit.</Text>
+                  </View>
+
+                </View>
+              </TouchableOpacity>
             </ScrollView>
           </View>
 
@@ -138,28 +247,53 @@ export default function Index() {
               contentContainerStyle={{ paddingHorizontal: 16 }}
             >
               <View className="w-20 h-20 rounded-xl bg-slate-200 mr-4">
-                <Text>Genshin</Text>
+                <Image
+                  source={require("../assets/images/unnamed.webp")}
+                  className="w-full h-full object-cover  rounded-xl"
+
+                />
+                <Text className="text-center font-semibold w-full ">Ganshin Impact</Text>
               </View>
               <View className="w-20 h-20 rounded-xl bg-slate-200 mr-4">
-                <Text>Genshin</Text>
+                <Image
+                  source={require("../assets/images/unnamed.webp")}
+                  className="w-full h-full object-cover rounded-xl "
+
+                />
+                <Text className="text-center font-semibold w-full ">Ganshin Impact</Text>
               </View>
               <View className="w-20 h-20 rounded-xl bg-slate-200 mr-4">
-                <Text>Genshin</Text>
+                <Image
+                  source={require("../assets/images/unnamed.webp")}
+                  className="w-full h-full object-cover rounded-xl "
+
+                />
+                <Text className="text-center font-semibold w-full ">Ganshin Impact</Text>
               </View>
               <View className="w-20 h-20 rounded-xl bg-slate-200 mr-4">
-                <Text>Genshin</Text>
+                <Image
+                  source={require("../assets/images/unnamed.webp")}
+                  className="w-full h-full object-cover rounded-xl "
+
+                />
+                <Text className="text-center font-semibold w-full ">Ganshin Impact</Text>
               </View>
               <View className="w-20 h-20 rounded-xl bg-slate-200 mr-4">
-                <Text>Genshin</Text>
+                <Image
+                  source={require("../assets/images/unnamed.webp")}
+                  className="w-full h-full object-cover rounded-xl "
+
+                />
+                <Text className="text-center font-semibold w-full ">Ganshin Impact</Text>
               </View>
             </ScrollView>
           </View>
 
         </ScrollView>
-       
+
       </View>
       <SafeAreaView>
-        <NavBottom/>
+        <NavBottom />
       </SafeAreaView>
     </View>
   );

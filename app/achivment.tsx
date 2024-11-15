@@ -1,62 +1,101 @@
 import React from 'react';
-import { View, Text, FlatList, Image } from 'react-native';
+import { View, Text, FlatList, Image, TouchableOpacity } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+import { ProgressBar } from 'react-native-paper';
+import { Ionicons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import NavBottom from '@/app/component/navBottom';
 
-const trophies = [
+const awards = [
   {
     id: '1',
-    title: 'Master Gamer',
-    description: 'Awarded for reaching level 50',
-    image: { uri: 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDR8fHRyb3BoeXxlbnwwfHx8fDE2MDE5ODc2MjQ&ixlib=rb-1.2.1&q=80&w=400' },
+    title: 'Novices Reward',
+    description: 'Gansihin',
+    icon: require('../assets/images/piala.png'),
+    progress: 0.3,
   },
   {
     id: '2',
-    title: 'Speed Runner',
-    description: 'Awarded for completing the game in under 3 hours',
-    image: { uri: 'https://images.unsplash.com/photo-1582205763116-42d22a22b36e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDh8fHRyb3BoeXxlbnwwfHx8fDE2MDE5ODc2MjQ&ixlib=rb-1.2.1&q=80&w=400' },
+    title: 'Channel3 Star',
+    description: 'Next',
+    icon: require('../assets/images/piala.png'),
+    progress: 0.5,
   },
   {
     id: '3',
-    title: 'Collector',
-    description: 'Awarded for collecting all items',
-    image: { uri: 'https://images.unsplash.com/photo-1582205762923-3e3e4c86f52b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDV8fHRyb3BoeXxlbnwwfHx8fDE2MDE5ODc2MjQ&ixlib=rb-1.2.1&q=80&w=400' },
+    title: 'Contribute Star',
+    description: 'Completed',
+    icon: require('../assets/images/piala.png'),
+    progress: 1,
+  },
+  {
+    id: '4',
+    title: 'Sharers',
+    description: 'Not Reach',
+    icon: require('../assets/images/piala.png'),
+    progress: 0,
   },
   // Tambahkan item lainnya sesuai kebutuhan
 ];
 
-export default function TrophyScreen() {
+export default function HonorScreen() {
+  const navigation = useNavigation();
   return (
     <>
-      <View className="flex-1 bg-gray-100 p-4 mt-12">
-        {/* Header */}
-        <Text className="text-2xl font-bold text-blue-800 mb-4">
-          Trophy Achievements
-        </Text>
-        
-        {/* Trophy List */}
-        <FlatList
-          data={trophies}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <View className="flex-row bg-white rounded-lg p-4 mb-3 items-center shadow-md">
-              <Image
-                source={item.image}
-                className="w-12 h-12 mr-3"
-                resizeMode="contain"
-              />
-              <View className="flex-1">
-                <Text className="text-lg font-bold text-blue-800">{item.title}</Text>
-                <Text className="text-sm text-gray-500 mt-1">{item.description}</Text>
-              </View>
-            </View>
-          )}
+    <View className="flex-1">
+      {/* Header */}
+      <LinearGradient  colors={["#11418B", "#051125"]} className="p-4 pt-12 h-[300px] ">
+        <Image
+        source={require('../assets/images/mendali.png')}
+        className="w-52 h-52 rounded-full absolute top-5 right-0 ml-4 z-10"
         />
-      </View>
+      <TouchableOpacity 
+        onPress={() => navigation.goBack()} 
+        className="left-[-10px] p-2 rounded-full z-10"
+      >
+        <Ionicons name="arrow-back" size={24} color="white" />
+      </TouchableOpacity>
+        <Text className="text-5xl font-bold text-white mt-4">My Honor</Text>
+        <View className='flex-row items-center bg-black w-32 h-11 rounded-2xl justify-center mt-1 opacity-50 z-[1]'>
+        <Text className="text-base text-[#fffac7] opacity-100 font-bold z-[2] ">Award 1/10</Text>
+        </View>
+       
+      </LinearGradient>
 
-      <SafeAreaView>
-        <NavBottom />
-      </SafeAreaView>
-    </>
+
+    <View className='bg-white rounded-3xl mt-[-40px]'>
+      {/* Award Cards */}
+      <FlatList
+        data={awards}
+        keyExtractor={(item) => item.id}
+        numColumns={2}
+        contentContainerStyle={{ paddingHorizontal: 16 }}
+        renderItem={({ item }) => (
+          <View className="flex-1 m-2 bg-[#11418B] rounded-lg p-4">
+            <Image source={item.icon} className="w-32 h-32 self-center mb-2" />
+            <Text className="text-white text-lg font-bold text-center">{item.title}</Text>
+            <Text className={`text-center mt-1 ${item.progress === 1 ? 'text-green-500' : 'text-white'}`}>
+              {item.description}
+            </Text>
+            {item.progress < 1 && (
+              <ProgressBar
+                progress={item.progress}
+                color="#2575fc"
+                style={{ height: 6, borderRadius: 4, marginTop: 8 }}
+              />
+            )}
+          </View>
+        )}
+        
+      />
+      </View>
+     
+    </View>
+
+     <SafeAreaView>
+     <NavBottom />
+   </SafeAreaView>
+   </>
   );
 }

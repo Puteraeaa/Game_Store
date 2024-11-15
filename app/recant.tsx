@@ -46,16 +46,16 @@ export default function RecentPlayScreen() {
 
 
       {/* Clock Icon and Continue Button */}
-      <View className="bg-[#1E3A8A]   items-center pt-4  z-10">
-        <View className="w-16 h-16 bg-gray-200 rounded-full  justify-center items-center">
-          {/* Ikon Jam */}
+      <View className="bg-[#1E3A8A]   items-center pt-4 mt-12  z-10">
+        {/* <View className="w-16 h-16 bg-gray-200 rounded-full  justify-center items-center">
+          
           <Image
               source={require("../assets/images/Alarm Clock.png")}
               className="w-32 h-32 md:w-32 md:h-32  "
             />
-        </View>
-        <TouchableOpacity className="bg-white px-9 py-4 mb-[-45px] rounded-full ">
-          <Text className="text-[#1E3A8A] font-semibold">Continue Playing</Text>
+        </View> */}
+        <TouchableOpacity className="bg-white px-9 py-4 mb-[-50px] rounded-full ">
+          <Text className="text-[#1E3A8A] font-bold text-lg">Continue Playing</Text>
         </TouchableOpacity>
       </View>
 
